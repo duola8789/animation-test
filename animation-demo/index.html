@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+  <title>Animation Demo</title>
+  <link rel="stylesheet" href="./libs/swiper/css/swiper.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 14px;
+      /*box-sizing: border-box;*/
+      font-family: Droid Sans, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    .swiper-container {
+      margin: 20px auto;
+      height: 200px;
+      max-width: 600px;
+      border: 1px solid darkgray;
+    }
+    .swiper-slide {
+      width: 200px;
+      height: 200px;
+    }
+    .swiper-slide:nth-child(1) {
+      background: red;
+    }
+    .swiper-slide:nth-child(2) {
+      background: deeppink;
+    }
+    .swiper-slide:nth-child(3) {
+      background: green;
+    }
+    .swiper-slide:nth-child(4) {
+      background: darkorange;
+    }
+  </style>
+</head>
+<body>
+<div id="app" class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" id="test"></div>
+    <div class="swiper-slide"></div>
+    <div class="swiper-slide"></div>
+    <div class="swiper-slide"></div>
+  </div>
+</div>
+<script src="./libs/swiper/js/swiper.min.js"></script>
+<script>
+const mySwiper = new Swiper('.swiper-container', {
+  effect: 'coverflow',
+  slidesPerView: 3,
+  centeredSlides: true,
+  coverflowEffect: {
+    // rotate: 30,
+    // stretch: 10,
+    // depth: 60,
+    // modifier: 2,
+    // slideShadows : true
+  },
+});
+document.querySelector('#test').addEventListener('click', e => {
+  e.target.style.background = 'black'
+})
+</script>
+</body>
+</html>
