@@ -11,9 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "blink-diff": "^1.0.13",
-    "casperjs": "^1.1.4",
     "fs-extra": "^8.1.0",
-    "phantomjs": "^2.1.7",
     "pixelmatch": "^5.0.2",
     "pngjs": "^3.4.0",
     "puppeteer": "^1.19.0"
