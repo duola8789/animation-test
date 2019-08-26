@@ -9,6 +9,12 @@ const CPU_THROTTLE_RATE = 4;
 // 动画 demo 地址
 const ANIMATION_DEMO_URL = 'http://10.232.46.232:8081/';
 
+// trace.json 存放路径
+const TRACT_PATH = './trace';
+
+// 截图存放路径
+const IMAGE_PATH = './images';
+
 (async () => {
   try {
     const browser = await puppeteer.launch({
@@ -28,6 +34,8 @@ const ANIMATION_DEMO_URL = 'http://10.232.46.232:8081/';
 
     // 等待 1s
     await page.waitFor(1000);
+
+    await fs.emptyDir(TRACT_PATH);
 
     // 开始测量
     await page.tracing.start({ screenshots: true, path: './trace/trace.json' });
@@ -50,9 +58,7 @@ const ANIMATION_DEMO_URL = 'http://10.232.46.232:8081/';
       typeof x.args.snapshot !== 'undefined'
     ));
 
-    // 处理目录
-    await fs.remove('./images');
-    await fs.mkdir('./images');
+    await fs.emptyDir(IMAGE_PATH);
 
     // 生成截图
     traceScreenshots.forEach(function(snap, index) {
